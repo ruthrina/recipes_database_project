@@ -5,21 +5,31 @@
 <head>
 	<title>Recipe App</title>
 	<link rel="stylesheet" href="{%static 'index.css'%}">
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 </head>
 
 <body>
-	<header>
-		<h1>Recipe App</h1>
+	<header class="bg-light">
+		<h1><a href="{% url 'home' %}">Recipe App</a></h1>
 
 		<nav>
 			<ul>
-				<li><a href="{%url 'home'%}">Home</a></li>
-				<li><a href="{%url 'add_recipe'%}">Add Recipe</a></li>
+				
+				{% if user.is_authenticated %}
+					<li><a href="{%url 'home'%}">Home</a></li>
+					<li><a href="{%url 'add_recipe'%}">Add Recipe</a></li>
+					<li><a href="{%url 'add_recipe'%}">Logout</a></li>
+				{% else %}
+					<li><a href="{%url 'home'%}">Home</a></li>
+					<li><a href="{%url 'auth:register'%}">Sign Up</a></li>
+					<li><a href="{%url 'auth:login_page'%}">Login</a></li>
+				{% endif %}
+					
 			</ul>
 		</nav>
 		<form>
 			<input type="text" placeholder="Search for recipes..." class="search-input">
-			<button type="submit" class="btn-primary">Search</button>
+			<button type="submit" class="btn-primary btn">Search</button>
 		</form>
 	</header>
     {% block content%}
