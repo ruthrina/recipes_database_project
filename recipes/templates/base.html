@@ -1,0 +1,40 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Recipe App</title>
+	<link rel="stylesheet" href="{%static 'index.css'%}">
+</head>
+
+<body>
+	<header>
+		<h1>Recipe App</h1>
+
+		<nav>
+			<ul>
+				<li><a href="{%url 'home'%}">Home</a></li>
+				<li><a href="{%url 'add_recipe'%}">Add Recipe</a></li>
+			</ul>
+		</nav>
+		<form>
+			<input type="text" placeholder="Search for recipes..." class="search-input">
+			<button type="submit" class="btn-primary">Search</button>
+		</form>
+	</header>
+    {% block content%}
+    {%endblock content%}
+    <footer>
+		<section id="categories">
+			<h2>Categories</h2>
+			<ul>
+				<li><a href="{%url 'appetizers'%}">Appetizers</a></li>
+				<li><a href="{%url 'entrees'%}">Entrees</a></li>
+				<li><a href="{%url 'desserts'%}">Desserts</a></li>
+			</ul>
+		</section>
+		<p>Copyright © Recipe App</p>
+	</footer>
+</body>
+
+</html>
