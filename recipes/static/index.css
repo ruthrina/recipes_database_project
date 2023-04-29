@@ -40,6 +40,7 @@ nav ul >li > a{
 	border-radius: 7px;
 	font-size: 14px;
 	border: none;
+	width: 200px;
 }
 .btn-primary{
 	padding:15px;
@@ -49,9 +50,11 @@ nav ul >li > a{
 	cursor: pointer;
 	border-radius: 7px;
 }
-main{
-	position: relative;
-	margin-top: 100px;
+
+.main{
+	min-height: 100vh;
+	margin-top: 150px;
+	margin: 150px 50px 0 50px;
 }
 #recipes{
 	min-height: 100vh;
@@ -101,4 +104,43 @@ footer ul > li{
 	min-height:50vh;
 	width:80%;
 	margin: 100px auto;
+}
+.input{
+	padding:5px;
+	width: 100%;
+	margin-bottom: 20px;
+}
+.file-input{
+	margin:20px 0;
+}
+
+.passwordinput{
+	width: 100%;
+}
+
+.input{
+	padding:15px;
+}
+input[type='password'],input[type='text'],textarea{
+	padding: 15px;
+	margin: 10px 0;
+	width: 100%;
+}
+
+.update-btn,.delete-btn{
+	margin-top: 20px;
+	padding: 20px;
+}
+.update-btn{
+	border: 1px solid lightgreen;
+	color: green;
+}
+
+.delete-btn{
+	border: 1px solid red;
+	color: red;
+
+}
+.options{
+	margin-top: 20px;
 }

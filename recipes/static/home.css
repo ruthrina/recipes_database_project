@@ -113,6 +113,9 @@ footer{
     font-size: 40px;
     color: black;
 }
-
-
-
+.input{
+	padding:20px;
+}
+input[type='password']{
+	padding: 20px;
+}

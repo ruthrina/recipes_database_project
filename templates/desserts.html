@@ -1,78 +1,28 @@
 {%extends 'base.html'%}
-{% load static %}
+{%load static%}
 {%block content%}
 <main>
     <section id="recipes">
-        <h2>Entrees</h2>
         <div class="recipe-list">
+            
+            {% for recipe in desserts %}
             <div class="card">
                 <div class="card-img">
-                    <img src="{%static 'images/garlic-butter-steak-bites.jpg'%}">
+                    
+                        <img src="{{recipe.image.url}}">
+                    </a>
                 </div>
                 <div class="card-detail">
-                    <h3>Garlic Butter Steak Bites</h3>
-                    <p>These steak bites are juicy, flavorful, and cooked in a delicious garlic butter sauce.
-                        They're
-                        perfect for a quick and easy dinner or appetizer.</p>
+                    <a href="{% url 'recipe_detail' pk=recipe.id%}">
+                        <h3>{{recipe.name}}</h3>
+                    </a>
+                    <p>{{recipe.detail|truncatewords:20}}</p>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-img">
-                    <img src="{% static 'images/shrimp-ceviche.webp'%}">
-                </div>
-                <div class="card-detail">
-                    <h3>Creamy Garlic Shrimp</h3>
-                    <p>This dish is rich, creamy, and packed with garlic flavor. The shrimp is cooked in a creamy
-                        sauce
-                        and served over pasta for a satisfying and delicious meal.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img">
-                    <img src="{%static 'images/shrimp-ceviche.webp'%}">
-                </div>
-                <div class="card-detail">
-                    <h3>Creamy Garlic Shrimp</h3>
-                    <p>This dish is rich, creamy, and packed with garlic flavor. The shrimp is cooked in a creamy
-                        sauce
-                        and served over pasta for a satisfying and delicious meal.</p>
-                </div>
-            </div>
-
-
-            <div class="card">
-                <div class="card-img">
-                    <img src="{%static 'images/Best-Juicy-Baked.jpg'%}">
-                </div>
-                <div class="card-detail">
-                    <h3>Oven Baked Chicken Breasts</h3>
-                    <p>These chicken breasts are tender, juicy, and flavorful. They're baked in the oven with a
-                        simple
-                        seasoning blend and perfect for meal prep or a weeknight dinner.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img">
-                    <img src="{%static 'images/Garlic-Butter-Chicken-Bites.jpg'%}">
-                </div>
-                <div class="card-detail">
-                    <h3>Garlic Butter Chicken Bites</h3>
-                    <p>These chicken bites are tender, juicy, and cooked in a delicious garlic butter sauce. They're
-                        perfect for a quick and easy dinner or appetizer.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img">
-                    <img src="{%static 'images/Garlic-Scallops-IMAGE.jpg'%}">
-                </div>
-                <div class="card-detail">
-                    <h3>Garlic Butter Scallops</h3>
-                    <p>These scallops are cooked in a flavorful garlic butter sauce and perfect for a romantic
-                        dinner or
-                        special occasion. Serve with your favorite side dish for a complete meal.</p>
-                </div>
-            </div>
-        </div>
+            {% endfor %}
+                
+        </div>      
     </section>
 </main>
+
 {%endblock content%}

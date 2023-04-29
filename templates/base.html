@@ -18,7 +18,7 @@
 				{% if user.is_authenticated %}
 					<li><a href="{%url 'home'%}">Home</a></li>
 					<li><a href="{%url 'add_recipe'%}">Add Recipe</a></li>
-					<li><a href="{%url 'add_recipe'%}">Logout</a></li>
+					<li><a href="{%url 'auth:logout'%}">Logout</a></li>
 				{% else %}
 					<li><a href="{%url 'home'%}">Home</a></li>
 					<li><a href="{%url 'auth:register'%}">Sign Up</a></li>
@@ -29,11 +29,13 @@
 		</nav>
 		<form>
 			<input type="text" placeholder="Search for recipes..." class="search-input">
-			<button type="submit" class="btn-primary btn">Search</button>
+			<button type="submit"  id="search" class="btn-primary btn">Search</button>
 		</form>
 	</header>
-    {% block content%}
+  <div class="main">
+	{% block content%}
     {%endblock content%}
+  </div>
     <footer>
 		<section id="categories">
 			<h2>Categories</h2>
@@ -45,6 +47,7 @@
 		</section>
 		<p>Copyright © Recipe App</p>
 	</footer>
+	<script src="index.js"></script>
 </body>
 
 </html>
